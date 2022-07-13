@@ -1,6 +1,5 @@
-import { QueryClient, QueryClientProvider, useQuery } from 'react-query';
+import { useQuery } from 'react-query';
 import Person from 'components/Person/Person';
-const queryClient = new QueryClient();
 
 const fetchPeople = async () => {
   const res = await fetch('http://swapi.dev/api/people/');
@@ -29,10 +28,4 @@ const People = () => {
   );
 };
 
-export default function Wraped() {
-  return (
-    <QueryClientProvider client={queryClient}>
-      <People />
-    </QueryClientProvider>
-  );
-}
+export default People;
